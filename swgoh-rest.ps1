@@ -24,5 +24,6 @@ function toon($uribase, $characters, $index){
 function gear($uribase, $gear, $index){
     $gear = invoke-restmethod -uri ($uribase + $gear)
     $index  = 23
-    $gearread = invoke-restmethod -uri ($uribase + $gear + )
+    #below line is incomplete
+    $gearread = invoke-restmethod -uri ($uribase + $gear)
 }
