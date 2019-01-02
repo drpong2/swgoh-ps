@@ -13,7 +13,7 @@ param(
 )
 
 function uribuilder($uribase, $uriappend, $destination){
-    $uri = [system.uri]($uribase + $uriappend)
+    $uri = [System.UriBuilder]($uribase + $uriappend)
     $destination($uri)
 }
 
