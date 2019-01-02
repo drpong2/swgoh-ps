@@ -3,11 +3,26 @@
 code to scrape/cache swgoh for character ability referencing/database manipulation
 
 #>
+param(
 
-$uribase = 'https://swgoh.gg/api/'
-$characters = 'characters'
+    [string]$uribase = 'https://swgoh.gg/api/',
+    [string]$characters = 'characters/',
+    [string]$gear = 'gear/',
+    [string]$abilities = 'abilities/',
+    [string]$index = '1'
+)
 
 
 
 #initialization
-$toons = invoke-restmethod -uri ($uribase + $characters)
+function toon($uribase, $characters, $index){
+    $toons = invoke-restmethod -uri ($uribase + $characters)
+    $index = 23
+    $toonsread = invoke-restmethod -uri ($uribase + $characters + '/' + ($toons[$index].pk))
+}
+
+function gear($uribase, $gear, $index){
+    $gear = invoke-restmethod -uri ($uribase + $gear)
+    $index  = 23
+    $gearread = invoke-restmethod -uri ($uribase + $gear + )
+}
