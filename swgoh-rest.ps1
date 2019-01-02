@@ -12,18 +12,23 @@ param(
     [string]$index = '1'
 )
 
+function uribuilder($uribase, $uriappend, $destination){
+    $uri = [system.uri]($uribase + $uriappend)
+    $destination($uri)
+}
+
 
 
 #initialization
-function toon($uribase, $characters, $index){
-    $toons = invoke-restmethod -uri ($uribase + $characters)
-    $index = 23
-    $toonsread = invoke-restmethod -uri ($uribase + $characters + '/' + ($toons[$index].pk))
+function toon($uri){
+    $toons = invoke-restmethod -uri $uri
+    #$index = 23
+    #$toonsread = invoke-restmethod -uri ($uribase + $characters + '/' + ($toons[$index].pk))
 }
 
-function gear($uribase, $gear, $index){
-    $gear = invoke-restmethod -uri ($uribase + $gear)
+function gear($uri){
+    $gear = invoke-restmethod -uri $uri
     $index  = 23
     #below line is incomplete
-    $gearread = invoke-restmethod -uri ($uribase + $gear)
+    #$gearread = invoke-restmethod -uri ($uribase + $gear)
 }
