@@ -13,8 +13,8 @@ param(
 )
 
 function uribuilder($uribase, $uriappend, $destination){
-    $uri = [System.UriBuilder]($uribase + $uriappend)
-    $destination($uri)
+    $uri = [System.Uristring]($uribase + $uriappend)
+    toon($uri)
 }
 
 
